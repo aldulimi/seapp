@@ -33,9 +33,10 @@ To obtain further details on ASL (of ASF++) read the user manual or see the sub-
 
 Authors
 =======
-+ Alessandro Pischedda	<alessandro.pischedda@gmail.com>
-+ Marco Tiloca		    	<marco.tiloca84@gmail.com>
 + Francesco Racciatti  	<racciatti.francesco@gmail.com>
++ Alessandro Pischedda	<alessandro.pischedda@gmail.com>
++ Marco Tiloca		    <marco.tiloca84@gmail.com>
+
 
 
 Maintainer
