@@ -1,13 +1,8 @@
 /**
  * @file	Drop.h
  * @author	Francesco Racciatti <racciatti.francesco@gmail.com>
- * @version	1.0
- * @date	2015 jun 22
  *
  * @brief	The class Drop is used to drop packets.
- *
- * @details	The class Drop is used to drop packets. 
-  *			In the conditional attacks the matching of the packet filter is a sufficient condition to drop a packet. 
  */
 
 
@@ -19,23 +14,20 @@
 
 
 class Drop : public ActionBase {
+    
+    private:
+        double threshold;
 
 	public:
-	
-		/**
-		 * @brief Constructor.
-		 */
-		Drop();
-		
-		/**
-		 * @brief Destructor.
-		 */
-		virtual ~Drop();
+        Drop(double threshold);
+        virtual ~Drop();
 
 		/**
-		 * @brief Drops (i.e. deletes) the packet
+		 * @brief   Drops the packet (depending on the threshold).
+         * @param   packet is the packet to drop.
 		 */
 		void execute(cMessage** packet) const;
+    
 };
 
 #endif

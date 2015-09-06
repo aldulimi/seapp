@@ -6,8 +6,6 @@
  * 
  * @details An elementary block has the following form:
  *          [ : layerName.fieldName. : comparisonOperator : operand : ]
- *          ^           ^                      ^                ^     ^
- *          0           1                      2                3     4
  */
  
 
@@ -15,7 +13,7 @@
 #define ELEMENTARYBLOCK_H
 
 
-#include <FilterBlock.h>
+#include "FilterBlock.h"
 #include "omnetpp.h"
 
 

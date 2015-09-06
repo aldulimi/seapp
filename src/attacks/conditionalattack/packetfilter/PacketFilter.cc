@@ -18,9 +18,9 @@ PacketFilter::PacketFilter (string monolithicPacketFilter) {
     // build blocks and logical conditions
     for (size_t i = 0; i < filterElements.size(); i++) {
         
-        // block begin
+        // block
         if (filterElements[i] == "[") {
-            // build block
+
             vector<string> block;
             for (size_t j = i; filterElements[j] != "]"; j++) {
                 block.push_back(filterElements[j]);

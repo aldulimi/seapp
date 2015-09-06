@@ -1,8 +1,6 @@
 /**
  * @file	Parser.cc
  * @author	Francesco Racciatti <racciatti.francesco@gmail.com>
- * @version	0.0.7
- * @date	2015 may 13
  */
 
 
@@ -385,9 +383,13 @@ bool Parser::initializeAttack (const xmlpp::Node* nodeLevel2, AttackBase* attack
 					
 					// Drop
 					case action_t::DROP: {
-						Drop* drop = new Drop();
-						drop->setPacketName(tokens[1]);
-						attack->addAction(drop);
+                        string packetName = tokens[1];
+                        double threshold = (atof)(tokens[3].c_str());
+						
+                        Drop* drop = new Drop(threshold);
+						drop->setPacketName(packetName);
+						
+                        attack->addAction(drop);
 						
 						msg.clear();
 						msg.append("Parser::initializeAttack has added a Drop action to the vector ConditionalAttacks");

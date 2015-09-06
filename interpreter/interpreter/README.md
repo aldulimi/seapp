@@ -46,9 +46,9 @@ Only the input file is mandatory. If the user does not specify the output filena
 
 Authors
 =======
-+ Francesco Racciatti  	<racciatti.francesco@gmail.com>
 + Alessandro Pischedda	<alessandro.pischedda@gmail.com>
 + Marco Tiloca			<marco.tiloca84@gmail.com>
++ Francesco Racciatti  	<racciatti.francesco@gmail.com>
 
 
 Maintainer

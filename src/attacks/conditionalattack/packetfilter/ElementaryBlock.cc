@@ -52,7 +52,7 @@ bool ElementaryBlock::solveFilterBlock (cPacket* packet) const {
         string valuePacket = descriptor->getFieldAsString(encapsulatedPacket, fieldIndex, 0);
         bool comparisonResult = false;
         for (size_t i = 0; i < values.size(); i++) {
-            comparisonResult = evaluate( atoi(valuePacket.c_str()), atoi(values[i].c_str()), comparisonOperator );
+            comparisonResult = evaluate( atoi(valuePacket.c_str()), atoi(values[i].c_str()), comparisonOperator);
             if (comparisonResult == true) {
                 return true;
             } 

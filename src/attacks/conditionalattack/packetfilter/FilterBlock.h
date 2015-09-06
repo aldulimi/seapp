@@ -12,7 +12,7 @@
 
 #include <vector>
 #include <string>
-#include <omnetpp.h>
+#include "omnetpp.h"
 
 
 using namespace std;

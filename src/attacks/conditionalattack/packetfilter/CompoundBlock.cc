@@ -5,23 +5,19 @@
 
 
 #include "CompoundBlock.h"
-#include <seapputils.h>
+#include "seapputils.h"
 
 
 CompoundBlock::CompoundBlock (vector<string> blockElements) : FilterBlock(blockElements) {
 
 }
 
+
 CompoundBlock::~CompoundBlock () {
     
 }
 
-/**
- @details A compound block has the following form:
- *          [ : ( : layerName.fieldName : arithmeticOperator : operand : ) : comparisonOperator : operand : ]
- *          ^   ^           ^                       ^             ^      ^             ^             ^      ^
- *          0   1           2                       3             4      5             6             7      8 
- */
+
 bool CompoundBlock::solveFilterBlock (cPacket* packet) const {
     
     // retrieve the layer name from the block
@@ -53,7 +49,7 @@ bool CompoundBlock::solveFilterBlock (cPacket* packet) const {
         string operand = blockElements[4];
         // perform the arithmetic operation
         string valuePacket = descriptor->getFieldAsString(encapsulatedPacket, fieldIndex, 0);
-        float result = evaluateArithmetic( atoi(valuePacket.c_str()), atoi(operand.c_str()), arithmeticOperator );
+        float result = evaluateArithmetic( atoi(valuePacket.c_str()), atoi(operand.c_str()), arithmeticOperator);
         
         // retrieve the comparison operator from the block
         string comparisonOperator = blockElements[6];
@@ -62,7 +58,7 @@ bool CompoundBlock::solveFilterBlock (cPacket* packet) const {
         // perform the comparison operation
         bool comparisonResult = false;
         for (size_t i = 0; i < values.size(); i++) {
-            comparisonResult = evaluate( (int)result, atoi(values[i].c_str()), comparisonOperator );
+            comparisonResult = evaluate( (int)result, atoi(values[i].c_str()), comparisonOperator);
             if (comparisonResult == true) {
                 return true;
             } 

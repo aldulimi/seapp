@@ -1,10 +1,8 @@
 /**
  * @file	Parser.h
  * @author	Francesco Racciatti <racciatti.francesco@gmail.com>
- * @version	0.0.7
- * @date	2015 may 13
  *
- * @brief	Parser class makes possible to parse the xml file that contains the attack description.
+ * @brief	Parser class makes possible the parsing of the xml file that contains the attack description (aka .
  *
  * @details	Parser class relies on the xml++ library. It is used by LocalFilter modules and the GlobalFilter module, 
  *			to initialize the data structures that are used to perform physical, conditional and unconditional attacks.
@@ -13,6 +11,7 @@
 
 #ifndef PARSE_H
 #define PARSE_H
+
 
 #include <iostream>
 #include <omnetpp.h>
@@ -90,7 +89,7 @@ class Parser{
 		 * @brief 	Parse the xml configuration file to find tags corresponding to attackType parameter
 		 * @param	attakType 
 		 *
-		 * @detail	Convert the attakType parameter to string by using the seapputil function toString() and 
+		 * @details	Convert the attakType parameter to string by using the seapputil function toString() and 
 		 *			parses the xml configuration file to search the corresponding tag
 		 */
 		void parseConfigurationFile(const attack_t attackType, vector<AttackEntry*>& attackEntries);
