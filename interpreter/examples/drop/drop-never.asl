@@ -15,7 +15,7 @@ from 100 nodes in targetList do {
 	# packet filter, it filters all packets having the field 'sourcePort' of the layer 'NET' equals to 1000
 	filter("NET.sourcePort" == "1000")
 
-		# never drop the dolly intercepted packet (threshold 0)
+		# never drop the dolly intercepted packet (likelyhood 0)
     	drop(original, 0)
 
 }
