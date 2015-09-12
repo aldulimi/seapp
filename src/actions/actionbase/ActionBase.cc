@@ -14,6 +14,7 @@
 
 const map<action_t,string> actionTypeMap = {
 	{action_t::DESTROY,"Destroy"},
+    {action_t::DISABLE,"Disable"},
 	{action_t::MOVE,"Move"},
 	{action_t::DROP,"Drop"},
 	{action_t::CHANGE,"Change"},
@@ -32,6 +33,7 @@ const map<action_t,string> actionTypeMap = {
 string to_string(const action_t actionType) {
     switch (actionType) {
         case action_t::DESTROY: {return "Destroy";}
+        case action_t::DISABLE: {return "Disable";}
         case action_t::MOVE: {return "Move";}
         case action_t::DROP: {return "Drop";}
         case action_t::CHANGE: {return "Change";}
@@ -63,6 +65,7 @@ string to_string(const action_t actionType) {
 
 action_t to_action_t(const string actionType){
     if (actionType == "Destroy") {return action_t::DESTROY;}
+    if (actionType == "Disable") {return action_t::DISABLE;}
     if (actionType == "Move") {return action_t::MOVE;}
     if (actionType == "Drop") {return action_t::DROP;}
     if (actionType == "Change") {return action_t::CHANGE;}

@@ -30,7 +30,8 @@ using namespace std;
 // action type
 enum class action_t : uint8_t{
 	DESTROY = 0,
-	MOVE,
+	DISABLE,
+    MOVE,
 	DROP,
 	CHANGE,
 	RETRIEVE,

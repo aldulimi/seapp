@@ -1,14 +1,14 @@
 version 2
-run seapp-attacks-0-20150605-12:23:55-3121
+run seapp-attacks-0-20150908-17:35:54-20403
 attr configname seapp-attacks
-attr datetime 20150605-12:23:55
+attr datetime 20150908-17:35:54
 attr experiment seapp-attacks
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network KIDSNw1
-attr processid 3121
+attr processid 20403
 attr repetition 0
 attr replication #0
 attr resultdir results

@@ -22,7 +22,7 @@ class ConditionalAttack : public AttackBase {
 	private:
         PacketFilter* packetFilter;
 		
-        // minimumInvolvedLayer is the minimum ISO/OSI layer involved in the conditional attack 
+        // minimum ISO/OSI layer involved in the conditional attack 
 		int minimumInvolvedLayer;
 		
 	public:

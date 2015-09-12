@@ -26,6 +26,7 @@ import inet.nodes.inet.Router;
 import inet.nodes.inet.StandardHost;
 import ned.DatarateChannel;
 import inet.globalfilter.GlobalFilter;
+import inet.exmachina.ExMachina;
 
 
 network KIDSNw1
@@ -45,7 +46,9 @@ network KIDSNw1
             datarate = 512Mbps;
         }
     submodules:
-   
+    
+   		exMachina: ExMachina;
+   		
    		globalFilter: GlobalFilter;
    
         host1: StandardHost {

@@ -1,43 +1,58 @@
 /**
  * @file	AttackBase.cc
  * @author	Francesco Racciatti <racciatti.francesco@gmail.com>
- * @version	0.0.4
- * @date	2015 apr 27
  */
 
 
 #include "AttackBase.h"
 
 
-AttackBase :: AttackBase(const attack_t attackType){
+AttackBase::AttackBase (const attack_t attackType) {
 
 	this->attackType = attackType;
 
 }
 
 
-AttackBase :: ~AttackBase(){
+AttackBase::~AttackBase () {
 
 }		
 
 
-void AttackBase :: initializeVariableTable(const map<string,Variable*> variableTable){
+void AttackBase::initializeVariableTable (const map<string,Variable*> variableTable) {
 
 	this->variableTable = variableTable;
 
 }
 
 
-void AttackBase :: addAction(ActionBase* action){
+void AttackBase::addAction (ActionBase* action) {
 
 	actions.push_back(action);
 
 }
 
 
+attack_t AttackBase::getAttackType () {
+ 
+    return attackType;
+    
+}
 
 
-string to_string(const attack_t type){
+ActionBase* AttackBase::getAction (size_t index) const {
+    
+    if (index < actions.size()) {
+        return actions[index];
+    }
+
+    return nullptr;
+    
+}
+
+
+
+string to_string (const attack_t type) {
 
 	switch(type){
 	
@@ -61,7 +76,7 @@ string to_string(const attack_t type){
 }
 
 
-attack_t to_attack_type(const string type){
+attack_t to_attack_type (const string type) {
 
 	if(type == "Physical"){
 		return attack_t::PHYSICAL;

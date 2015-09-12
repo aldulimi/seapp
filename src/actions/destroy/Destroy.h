@@ -1,8 +1,6 @@
 /**
  * @file	Destroy.h
  * @author	Francesco Racciatti <racciatti.francesco@gmail.com>
- * @version	1.0
- * @date	2015 jun 22
  *
  * @brief	Destroy class extends ActionBase. Destroy class makes possible the destruction of a node.
  *
@@ -31,9 +29,9 @@ class Destroy : public ActionBase {
 	
 		/**
 		 * @brief Constructor.
-		 * @param [in]	targetNode, it is the pointer to the target node.
+		 * @param targetNode, it is the pointer to the target node (i.e. the node to destroy).
 		 *
-		 * @detail	The Constructor of the Destroy class is called by the Parser object 
+		 * @details	The Constructor of the Destroy class is called by the Parser object 
 		 *			(that is instantiated, in turn, by the LocalFilter module). The Parser object passes 
 		 *			the pointer of the target node (i.e. a pointer to a cModule object) to the Destroy object.
 		 *			In this way, the Destroy object can set the boolean attribute isDestroyed of the LocalFilter
@@ -47,9 +45,9 @@ class Destroy : public ActionBase {
 		virtual ~Destroy();
 
 		/**
-		 * @brief Destroys the node.
+		 * @brief   Destroys the node.
 		 * 
-		 * @detail Destroys the node by setting the bool variable pointed by isDestroyed.
+		 * @details Destroys the node by setting the bool variable pointed by isDestroyed.
 		 */
 		void execute() const;
 };

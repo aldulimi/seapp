@@ -62,17 +62,20 @@ class AttackBase {
 		/** @brief Destructor */
 		virtual ~AttackBase();		
 	
+        /** @brief Add an action in the vector actions */
 		virtual void addAction(ActionBase* action);
 	
 		/** @brief Add variable table */
 		void initializeVariableTable(const map<string,Variable*> variableTable);
+        
+        /** @brief Return the attack type. */
+        attack_t getAttackType();
 
+        /** @brief Get an action composing the attack */
+        ActionBase* getAction(size_t index) const;
 };
 
 
-/**
- * @brief TODO
- */
 string to_string(const attack_t type);
 attack_t to_attack_type(const string type); 
 

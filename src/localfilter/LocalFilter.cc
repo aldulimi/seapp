@@ -1,8 +1,6 @@
 /**
  * @file	LocalFilter.c
  * @author	Francesco Racciatti <racciatti.francesco@gmail.com>
- * @version	0.0.9
- * @date	2015 may 03
  */
 
 
@@ -22,6 +20,8 @@
 #include "IInterfaceTable.h"
 #include "InterfaceEntry.h"
 #include "InterfaceTableAccess.h"
+
+#include "ExMachina.h"
 
 Define_Module(LocalFilter);
 
@@ -154,22 +154,70 @@ void LocalFilter::initializeAttacks(){
 	
 	cMessage* selfMessage;
 
+    // OLD
 	// schedule self messages according to the occurrence time and attach to it the physical attacks
+	//if( physicalAttacks.size() > 0 ){
+	//	for(size_t i=0; i<physicalAttacks.size(); i++){
+	//		selfMessage = new cMessage("Fire physical attack", (short) attack_t::PHYSICAL);
+	//		selfMessage->addPar("attack");
+	//		selfMessage->par("attack").setPointerValue(physicalAttacks[i]->getAttack());
+	//		scheduleAt(physicalAttacks[i]->getOccurrenceTime(), selfMessage);
+	//	}
+	//}
+	
+    // schedule self messages according to the occurrence time and attach to it the physical attacks, except disable attack
 	if( physicalAttacks.size() > 0 ){
 		for(size_t i=0; i<physicalAttacks.size(); i++){
-			selfMessage = new cMessage("Fire physical attack", (short) attack_t::PHYSICAL);
-			selfMessage->addPar("attack");
-			selfMessage->par("attack").setPointerValue(physicalAttacks[i]->getAttack());
-			scheduleAt(physicalAttacks[i]->getOccurrenceTime(), selfMessage);
+            // get the attack
+            AttackBase* attack = physicalAttacks[i]->getAttack();
+            
+            // recognize the physical action 'disable' (physical attacks are made by a single physical action)
+            ActionBase* action = attack->getAction(0);
+            if (action->getActionType() == action_t::DISABLE) {
+                
+                // find the module 'ExMachina' in the network
+                cModule* network = static_cast<cModule*>((getParentModule())->getParentModule());
+                cModule* subModule = nullptr;
+                bool exMachinaFound = false;
+                for (cModule::SubmoduleIterator iter(network); !iter.end(); iter++) {
+                    subModule = iter();
+                    string className = subModule->getClassName();
+                    EV << "[LocalFilter::initializeAttacks()] 'ExMachina' module found " << endl;
+                    // ExMachina found
+                    if (className == "ExMachina") {
+                        exMachinaFound = true;
+                        break;
+                    }
+                }
+                
+                // if ExMachina found
+                if (exMachinaFound == true) {
+                    ExMachina* exMachina = check_and_cast<ExMachina*>(subModule);
+                    exMachina->scheduleDisableAttack(physicalAttacks[i]);
+                }
+                else {
+                    opp_error("Error: ExMachina module not found in the network, please add it in the ned file");
+                }
+                
+            }
+            
+            // schedule physical actions 'destroy' and 'move'
+            else {
+                selfMessage = new cMessage("Fire physical attack", (short) attack_t::PHYSICAL);
+                selfMessage->addPar("attack");
+                selfMessage->par("attack").setPointerValue(attack);
+                scheduleAt(physicalAttacks[i]->getOccurrenceTime(), selfMessage);
+            }
 		}
 	}
-	
+    
 	// schedule self messages according to the occurrence time and attach to it the conditional attacks
 	if( conditionalAttacks.size() > 0 ){	
 		for(size_t i=0; i<conditionalAttacks.size(); i++){
-			selfMessage = new cMessage("Fire conditional attack", (short) attack_t::CONDITIONAL);	
+            AttackBase* attack = conditionalAttacks[i]->getAttack();
+            selfMessage = new cMessage("Fire conditional attack", (short) attack_t::CONDITIONAL);	
 			selfMessage->addPar("attack");
-			selfMessage->par("attack").setPointerValue(conditionalAttacks[i]->getAttack());
+			selfMessage->par("attack").setPointerValue(attack);
 			scheduleAt(conditionalAttacks[i]->getOccurrenceTime(), selfMessage);
 		}
 	}

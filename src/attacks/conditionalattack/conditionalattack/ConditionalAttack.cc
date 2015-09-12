@@ -17,19 +17,19 @@
 #include "Create.h"
 
 
-ConditionalAttack :: ConditionalAttack() : AttackBase(attack_t::CONDITIONAL){
+ConditionalAttack::ConditionalAttack () : AttackBase (attack_t::CONDITIONAL) {
 
 	minimumInvolvedLayer = NONE_LAYER;
 
 }
 
 
-ConditionalAttack :: ~ConditionalAttack(){
+ConditionalAttack::~ConditionalAttack () {
 
 }
 
 
-void ConditionalAttack :: addAction(ActionBase* action){
+void ConditionalAttack::addAction (ActionBase* action) {
 
 	actions.push_back(action);
 	
@@ -42,14 +42,14 @@ void ConditionalAttack :: addAction(ActionBase* action){
 }
 
 
-void ConditionalAttack::setPacketFilter(string monolithicPacketFilter) {
+void ConditionalAttack::setPacketFilter (string monolithicPacketFilter) {
 
     packetFilter = new PacketFilter(monolithicPacketFilter);
     
 }
 
 
-bool ConditionalAttack::isMatchingPacketFilter (cPacket* packet) const{
+bool ConditionalAttack::isMatchingPacketFilter (cPacket* packet) const {
 
 	// check if the current packet was already filtered before
 	if (packet->par("isFiltered").boolValue()) {
@@ -70,7 +70,7 @@ bool ConditionalAttack::isMatchingPacketFilter (cPacket* packet) const{
 
 
 // TODO change packet in msg
-void ConditionalAttack::execute(cMessage** packet, vector<cMessage*> &generatedPackets, vector<double> &delays, double &delay){
+void ConditionalAttack::execute (cMessage** packet, vector<cMessage*> &generatedPackets, vector<double> &delays, double &delay) {
 
 	EV << "ConditionalAttack::execute invoked" << endl;
 
@@ -283,24 +283,3 @@ void ConditionalAttack::execute(cMessage** packet, vector<cMessage*> &generatedP
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,8 +1,6 @@
 /**
  * @file	Destroy.cc
  * @author	Francesco Racciatti <racciatti.francesco@gmail.com>
- * @version	1.0
- * @date	2015 jun 22
  */
 
 
