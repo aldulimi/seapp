@@ -1,8 +1,8 @@
 Description
 ============
-This tool is an interpreter for ASF++. The user/s can write attacks by using the Attack Specification Language (aka ASL) 
-available for ASF++. The interpreter parses the ASL file (which contains the attacks) and produces the Attack Configuration
-File (aka ACF), i.e. an XML representation of the ASL file that is understandable by ASF++.
+This tool is an interpreter for SEA++. The user/s can write attacks by using the Attack Specification Language (aka ASL) 
+available for SEA++. The interpreter parses the ASL file (which contains the attacks) and produces the Attack Configuration
+File (aka ACF), i.e. an XML representation of the ASL file that is understandable by SEA++.
 
 
 Source tree
@@ -40,7 +40,7 @@ $ python path/interpreter.py -i inputfile -o outputfile
 
 -o outputfile is optional
 
-The commands above produces the XML Attack Configuration File (aka ACF) for ASF++, according to the ASL description in the input file.
+The commands above produces the XML Attack Configuration File (aka ACF) for SEA++, according to the ASL description in the input file.
 Only the input file is mandatory. If the user does not specify the output filename, the interpreter will use the default filename 'file_input.xml'.
 
 
