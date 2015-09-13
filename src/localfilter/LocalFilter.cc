@@ -166,7 +166,7 @@ void LocalFilter::initializeAttacks(){
 	//}
 	
     // schedule self messages according to the occurrence time and attach to it the physical attacks, except disable attack
-	if( physicalAttacks.size() > 0 ){
+	if (physicalAttacks.size() > 0) {
 		for(size_t i=0; i<physicalAttacks.size(); i++){
             // get the attack
             AttackBase* attack = physicalAttacks[i]->getAttack();

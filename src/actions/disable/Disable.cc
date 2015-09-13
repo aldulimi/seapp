@@ -5,7 +5,6 @@
 
 
 #include "Disable.h"
-#include "LocalFilter.h"
 
 
 Disable::Disable (cModule* targetNode) : ActionBase(action_t::DISABLE) {
