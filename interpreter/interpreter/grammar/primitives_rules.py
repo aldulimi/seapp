@@ -184,7 +184,7 @@ def p_statement_change(p):
     # p[7] is multi_type (NUMBER, STRING, ID) 
     if p[7] not in reserved_name and p[7] not in symbol_table.keys():
         
-        re_pattern = r"^-?[0-9].[0-9]"
+        re_pattern = r"^-?\d+(\.\d+)?"
         pattern = re.compile(re_pattern)
         
         # Add an entry in the variable table if STRING is not present in it

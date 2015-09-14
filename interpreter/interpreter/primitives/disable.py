@@ -10,8 +10,7 @@ disable(nodeId, time)
 NB: nodeId and the occurrence time are not stored in this object.
 
 Authors:
- + Francesco Racciatti	<racciatti.francesco@gmail.com>
- + Marco Tiloca			<marco.tiloca84@gmail.com>
+ + Francesco Racciatti <racciatti.francesco@gmail.com>
  
 Maintainer:
  + Francesco Racciatti <racciatti.francesco@gmail.com>

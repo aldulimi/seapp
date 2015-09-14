@@ -6,7 +6,7 @@
  *
  * @brief	ActionBase class provides the representation of a generic action that can be performed during an attack.
  *
- * @detail 	ActionBase class probides the type action_t, a scoped enum used to represent actions.
+ * @details	ActionBase class provides the type action_t, a scoped enum used to represent actions.
  
  */
  
